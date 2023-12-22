@@ -12,11 +12,9 @@ object AndroidDependencies {
         }
 
         object Compose {
-            private const val version = "1.4.3"
-
-            val ui = "androidx.compose.ui:ui:$version"
-            val graphics = "androidx.compose.ui:ui-graphics:$version"
-            val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
+            val ui = "androidx.compose.ui:ui"
+            val graphics = "androidx.compose.ui:ui-graphics"
+            val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
 
             object ViewModel {
                 private const val version = "2.6.1"
@@ -24,24 +22,23 @@ object AndroidDependencies {
             }
 
             object Bom {
-                private const val version = "2022.10.00"
+                private const val version = "2023.10.01"
                 val plugin = "androidx.compose:compose-bom:$version"
             }
 
             object Activity {
-                private const val version = "1.5.1"
+                private const val version = "1.8.1"
                 val plugin = "androidx.activity:activity-compose:$version"
             }
 
             object Material {
-                private const val version = "1.1.0"
-                val plugin = "androidx.compose.material3:material3:$version"
+                val plugin = "androidx.compose.material3:material3"
             }
 
             object Test {
-                val junit4 = "androidx.compose.ui:ui-test-junit4:$version"
-                val tooling = "androidx.compose.ui:ui-tooling:$version"
-                val manifest = "androidx.compose.ui:ui-test-manifest:$version"
+                val junit4 = "androidx.compose.ui:ui-test-junit4"
+                val tooling = "androidx.compose.ui:ui-tooling"
+                val manifest = "androidx.compose.ui:ui-test-manifest"
             }
         }
 
