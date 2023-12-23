@@ -1,4 +1,4 @@
-package com.luqman.news.ui.headlines.components
+package com.luqman.news.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.defaultMinSize

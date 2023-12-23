@@ -62,6 +62,7 @@ dependencies {
     implementation(AndroidDependencies.AndroidX.Compose.graphics)
     implementation(AndroidDependencies.AndroidX.Compose.toolingPreview)
     implementation(AndroidDependencies.AndroidX.Compose.Material.plugin)
+    implementation(AndroidDependencies.AndroidX.Navigation.plugin)
 
     // PAGING
     implementation(AndroidDependencies.AndroidX.Paging.core)
@@ -69,6 +70,7 @@ dependencies {
 
     // DI
     implementation(AndroidDependencies.Di.Hilt.plugin)
+    implementation(AndroidDependencies.Di.Hilt.navigation)
     kapt(AndroidDependencies.Di.Hilt.compiler)
 
     implementation(AndroidDependencies.Logger.Timber.plugin)

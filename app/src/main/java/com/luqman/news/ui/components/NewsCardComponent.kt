@@ -1,4 +1,4 @@
-package com.luqman.news.ui.headlines.components
+package com.luqman.news.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.luqman.news.core.helper.DateHelper.toDate
 import com.luqman.news.data.model.DummyHelper
 import com.luqman.news.data.model.News
 import com.luqman.news.uikit.component.ImageComponent
@@ -51,6 +52,11 @@ fun NewsCardComponent(
                 text = news.title,
                 modifier = Modifier,
                 style = MaterialTheme.typography.bodyMedium
+            )
+            Text(
+                text = news.publishedAt.toDate(),
+                style = MaterialTheme.typography.labelSmall,
+                modifier = Modifier.fillMaxWidth()
             )
         }
         Spacer(Modifier.width(8.dp))

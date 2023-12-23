@@ -1,7 +1,8 @@
-package com.luqman.news.ui.headlines.components
+package com.luqman.news.ui.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,7 +30,8 @@ import com.luqman.news.uikit.theme.AppTheme
 @Composable
 fun HeadlinesComponent(
     modifier: Modifier = Modifier,
-    list: List<News>
+    list: List<News>,
+    onClickItem: (News) -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = {
         list.size
@@ -39,7 +41,11 @@ fun HeadlinesComponent(
         state = pagerState
     ) { page ->
         val data = list[page]
-        Box {
+        Box(
+            modifier = Modifier.clickable {
+                onClickItem(data)
+            }
+        ) {
             ImageComponent(
                 model = data.image,
                 contentScale = ContentScale.Crop,
@@ -77,7 +83,8 @@ fun HeadlinesComponent(
 private fun HeadlinesComponentPrev() {
     AppTheme {
         HeadlinesComponent(
-            list = listOf(DummyHelper.NEWS)
+            list = listOf(DummyHelper.NEWS),
+            onClickItem = {}
         )
     }
 }

@@ -1,4 +1,4 @@
-package com.luqman.news.ui
+package com.luqman.news.ui.screens.main
 
 import androidx.paging.PagingData
 import com.luqman.news.core.model.Resource

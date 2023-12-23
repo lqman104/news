@@ -7,7 +7,7 @@ object AndroidDependencies {
         }
 
         object Navigation {
-            private const val version = "2.6.0"
+            private const val version = "2.7.6"
             val plugin = "androidx.navigation:navigation-compose:$version"
         }
 

@@ -1,4 +1,4 @@
-package com.luqman.news.ui
+package com.luqman.news.ui.screens.main
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
