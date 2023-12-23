@@ -5,4 +5,6 @@ import com.luqman.news.data.model.News
 
 interface NewsDataSource {
     suspend fun getHeadline(): Resource<List<News>>
+
+    suspend fun getNews(page: Int): Resource<List<News>>
 }

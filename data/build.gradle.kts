@@ -46,10 +46,12 @@ dependencies {
     kapt(AndroidDependencies.Json.Moshi.codegen)
 
     implementation(AndroidDependencies.Network.OkHttp.logging)
-
     implementation(AndroidDependencies.Logger.Timber.plugin)
-
     implementation(AndroidDependencies.Kotlin.Coroutine.plugin)
+
+    // PAGING
+    implementation(AndroidDependencies.AndroidX.Paging.core)
+    implementation(AndroidDependencies.AndroidX.Paging.compose)
 
     // DI
     implementation(AndroidDependencies.Di.Hilt.plugin)

@@ -63,6 +63,10 @@ dependencies {
     implementation(AndroidDependencies.AndroidX.Compose.toolingPreview)
     implementation(AndroidDependencies.AndroidX.Compose.Material.plugin)
 
+    // PAGING
+    implementation(AndroidDependencies.AndroidX.Paging.core)
+    implementation(AndroidDependencies.AndroidX.Paging.compose)
+
     // DI
     implementation(AndroidDependencies.Di.Hilt.plugin)
     kapt(AndroidDependencies.Di.Hilt.compiler)

@@ -40,6 +40,9 @@ dependencies {
     implementation(AndroidDependencies.AndroidX.CoreKtx.plugin)
     implementation(AndroidDependencies.Logger.Timber.plugin)
 
+    // PAGING
+    implementation(AndroidDependencies.AndroidX.Paging.core)
+    implementation(AndroidDependencies.AndroidX.Paging.compose)
 
     // DI
     implementation(AndroidDependencies.Di.Hilt.plugin)

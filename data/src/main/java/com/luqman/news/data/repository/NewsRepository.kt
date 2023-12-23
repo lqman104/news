@@ -4,6 +4,7 @@ import com.luqman.news.core.model.Resource
 import com.luqman.news.core.network.extension.ResponseExtension.runCatchingResponse
 import com.luqman.news.data.model.News
 import com.luqman.news.data.services.NewsService
+import com.luqman.news.data.services.model.ArticlesItem
 import kotlinx.coroutines.CoroutineDispatcher
 
 class NewsRepository(
@@ -14,19 +15,30 @@ class NewsRepository(
     override suspend fun getHeadline(): Resource<List<News>> {
         return runCatchingResponse(coroutineDispatcher) {
             val data = apiService.getHeadline().articles.orEmpty().map {
-                News(
-                    source = it.source?.name.orEmpty(),
-                    author = it.author.orEmpty(),
-                    title = it.title.orEmpty(),
-                    url = it.url.orEmpty(),
-                    image = it.urlToImage.orEmpty(),
-                    publishedAt = it.publishedAt.orEmpty(),
-                    content = it.content.orEmpty(),
-                )
+                it.toNews()
             }
 
             Resource.Success(data)
         }
     }
 
+    override suspend fun getNews(page: Int): Resource<List<News>> {
+        return runCatchingResponse(coroutineDispatcher) {
+            val data = apiService.getNews(page = page, pageSize = 15).articles.orEmpty().map {
+                it.toNews()
+            }
+
+            Resource.Success(data)
+        }
+    }
+
+    private fun ArticlesItem.toNews(): News = News(
+        source = source?.name.orEmpty(),
+        author = author.orEmpty(),
+        title = title.orEmpty(),
+        url = url.orEmpty(),
+        image = urlToImage.orEmpty(),
+        publishedAt = publishedAt.orEmpty(),
+        content = content.orEmpty(),
+    )
 }

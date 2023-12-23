@@ -5,17 +5,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.luqman.news.core.model.Resource
+import androidx.paging.cachedIn
 import com.luqman.news.domain.usecase.GetHeadlineUseCase
+import com.luqman.news.domain.usecase.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val useCase: GetHeadlineUseCase,
+    private val headlineUseCase: GetHeadlineUseCase,
+    private val newsUseCase: GetNewsUseCase,
 ) : ViewModel() {
 
     var state by mutableStateOf(MainScreenState())
@@ -23,13 +23,19 @@ class MainViewModel @Inject constructor(
 
     init {
         getHeadline()
+        getNews()
     }
 
     private fun getHeadline() {
         viewModelScope.launch {
-            useCase.invoke().collect {
+            headlineUseCase.invoke().collect {
                 state = state.copy(headline = it)
             }
         }
+    }
+
+    private fun getNews() {
+        val data = newsUseCase.invoke().cachedIn(viewModelScope)
+        state = state.copy(news = data)
     }
 }
