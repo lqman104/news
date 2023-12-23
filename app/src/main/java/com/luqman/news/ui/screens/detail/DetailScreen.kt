@@ -79,8 +79,7 @@ fun DetailScreen(
                     ImageComponent(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .heightIn(150.dp, 200.dp)
-                            .offset(x = 32.dp),
+                            .heightIn(150.dp, 200.dp),
                         model = news.image,
                         contentScale = ContentScale.Crop
                     )

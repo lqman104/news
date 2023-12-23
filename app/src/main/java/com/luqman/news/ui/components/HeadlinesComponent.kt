@@ -42,9 +42,9 @@ fun HeadlinesComponent(
         try {
             delay(5000)
             if (pagerState.currentPage < 3) {
-                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                pagerState.scrollToPage(pagerState.currentPage + 1)
             } else {
-                pagerState.animateScrollToPage(1, pageOffsetFraction = 0f)
+                pagerState.scrollToPage(1)
             }
         } catch (_: Exception) {
         }
