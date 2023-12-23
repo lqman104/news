@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name">News Apps</string>
   <string name="retry_button">Retry</string>
+  <string name="news_section_title">Today\'s Headline</string>
 </resources>

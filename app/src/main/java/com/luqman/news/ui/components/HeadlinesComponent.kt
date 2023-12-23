@@ -12,6 +12,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
@@ -25,6 +26,7 @@ import com.luqman.news.data.model.DummyHelper
 import com.luqman.news.data.model.News
 import com.luqman.news.uikit.component.ImageComponent
 import com.luqman.news.uikit.theme.AppTheme
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -36,6 +38,17 @@ fun HeadlinesComponent(
     val pagerState = rememberPagerState(pageCount = {
         list.size
     })
+    LaunchedEffect(pagerState.currentPage) {
+        try {
+            delay(5000)
+            if (pagerState.currentPage < 3) {
+                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+            } else {
+                pagerState.animateScrollToPage(1, pageOffsetFraction = 0f)
+            }
+        } catch (_: Exception) {
+        }
+    }
     HorizontalPager(
         modifier = modifier,
         state = pagerState

@@ -61,7 +61,8 @@ fun NewsPaginationComponent(
                 NewsCardComponent(
                     news = item,
                     onClickItem = onItemClicked,
-                    modifier = Modifier.padding(vertical = 8.dp)
+                    modifier = Modifier
+                        .padding(vertical = 8.dp)
                         .defaultMinSize(minHeight = 120.dp)
                 )
                 if (index != (list.itemCount - 1)) {
