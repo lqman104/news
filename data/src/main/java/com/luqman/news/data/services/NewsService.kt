@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface NewsService {
 
-    @GET("top-headlines?country=id&pageSize=3&page=1")
+    @GET("top-headlines?country=us&pageSize=3&page=1")
     suspend fun getHeadline(): NewsHttpResponse
 }

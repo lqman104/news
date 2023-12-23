@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation(platform (AndroidDependencies.AndroidX.Compose.Bom.plugin))
     implementation(AndroidDependencies.AndroidX.CoreKtx.plugin)
     implementation(AndroidDependencies.Logger.Timber.plugin)
     implementation(AndroidDependencies.AndroidX.Compose.ui)
